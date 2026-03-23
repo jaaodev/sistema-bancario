@@ -32,3 +32,6 @@ O projeto está organizado por pacotes para facilitar a localização:
 
 ##  Objetivo
 O meu objetivo é ir evoluindo o projeto conforme eu vou adquirindo conhecimento sobre novos conceitos e novas ferramentas.
+
+##  Autor
+Desenvolvido por João Rocha – Estudante de ADS e Desenvolvedor Back-end.
