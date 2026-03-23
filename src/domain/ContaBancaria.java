@@ -66,6 +66,10 @@ public abstract class ContaBancaria {
         return saldo;
     }
 
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
     public String getTipo() {
         return this.tipo;
     }

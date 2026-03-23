@@ -52,7 +52,7 @@ public class Main {
 
                     if (conta != null) {
                         manager.adicionarNovaConta(conta);
-                        System.out.println("Conta Poupança cadastrada com sucesso!");
+                        System.out.println("Conta " + conta.getTipo() + " cadastrada com sucesso!");
                         System.out.println("O número da conta é: " + conta.getNumeroDaConta());
                         System.out.print("Digite o valor do primeiro depósito: ");
                         double valorDep = sc.nextDouble();
@@ -64,6 +64,9 @@ public class Main {
                             System.err.println("ALERTA: " + e.getMessage() + "\n");
                         }
                     }
+                    System.out.println("\nPressione ENTER para continuar...");
+                    sc.nextLine();
+                    sc.nextLine();
                     break;
 
                 case 2:
@@ -83,6 +86,8 @@ public class Main {
                     } catch (NumeroDaContaInvalido | DepositoInvalidoException e) {
                         System.err.println("ALERTA: " + e.getMessage() + "\n");
                     }
+                    System.out.println("\nPressione ENTER para continuar...");
+                    sc.nextLine();
                     break;
 
                 case 3:
@@ -107,6 +112,8 @@ public class Main {
                     } catch (NumeroDaContaInvalido e) {
                         System.err.println("ALERTA: " + e.getMessage() + "\n");
                     }
+                    System.out.println("\nPressione ENTER para continuar...");
+                    sc.nextLine();
                     break;
 
                 case 4:
@@ -129,6 +136,8 @@ public class Main {
                     } catch (SaldoInsuficienteException | NumeroDaContaInvalido | DepositoInvalidoException e) {
                         System.err.println("ALERTA: Número de uma das contas inválido." + "\n");
                     }
+                    System.out.println("\nPressione ENTER para continuar...");
+                    sc.nextLine();
                     break;
 
                 case 5:
@@ -141,11 +150,20 @@ public class Main {
                         ContaBancaria contaEncontrada = manager.conferirNumConta(numConta5);
                         System.out.println();
                         System.out.println("Titular: " + contaEncontrada.getNomeDoTitular());
-                        System.out.println("Tipo: " + contaEncontrada.getTipo());
-                        System.out.println("Saldo atual: R$" + contaEncontrada.getSaldo());
+                        System.out.println("Tipo: Conta " + contaEncontrada.getTipo());
+                        if (contaEncontrada.getSaldo() >= 0) {
+                            System.out.println("Saldo atual: R$" + contaEncontrada.getSaldo());
+                        } else if (contaEncontrada.getSaldo() < 0 && contaEncontrada.getSaldo() >= -500) {
+                            System.out.print("Saldo atual: ");
+                            System.err.println("R$" + contaEncontrada.getSaldo());
+                            System.err.flush();
+                            try { Thread.sleep(50); } catch (InterruptedException e) {}
+                        }
                     } catch (NumeroDaContaInvalido e) {
                         System.err.println("ALERTA: " + e.getMessage() + "\n");
                     }
+                    System.out.println("\nPressione ENTER para continuar...");
+                    sc.nextLine();
                     break;
 
                 case 6:
@@ -160,6 +178,7 @@ public class Main {
                     } catch (NumeroDaContaInvalido e) {
                         System.err.println("ALERTA: " + e.getMessage() + "\n");
                     }
+                    break;
 
             }
 
